@@ -1,0 +1,22 @@
+// Fade-in animation
+
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+},{
+    threshold:0.1
+});
+
+cards.forEach(card => {
+    observer.observe(card);
+});
+
+// Footer year auto update
+
+const footer = document.querySelector("footer p");
+footer.innerHTML = `© ${new Date().getFullYear()} Chiwik. All rights reserved.`;
